@@ -2,18 +2,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>{{ page.title }}{% if page.title != 'Networks and Matrix Computations' %} – Networks and Matrix Computations{%endif%}</title>
-    <base href="{{ site.baseurl }}" />
+    <title>{{ page.title }}{% if page.title != 'Default course title' %} – Default course title{%endif%}</title>
+    <base href="{{ site.baseurl }}/" />
     <!-- Framework CSS --> 
-    <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection"> 
-    <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print"> 
+    <link rel="stylesheet" href="{{ site.baseurl }}/blueprint/screen.css" type="text/css" media="screen, projection"> 
+    <link rel="stylesheet" href="{{ site.baseurl }}/blueprint/print.css" type="text/css" media="print"> 
     <!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]--> 
  
     <!-- Import fancy-type plugin for the sample page. --> 
-    <link rel="stylesheet" href="blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection"> 
+    <link rel="stylesheet" href="{{ site.baseurl }}/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection"> 
     
     <!-- <link href='blueprint/screen.css' rel='stylesheet' type='text/css' /> -->
-    <link href='site.css' rel='stylesheet' type='text/css' />
+    <link href='{{ site.baseurl }}/site.css' rel='stylesheet' type='text/css' />
 
     <script type="text/javascript"
       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -26,17 +26,7 @@
 <body>
     <div class="container"> 
       <div class='span-17 prepend-1'> 
-        <a href="http://cads.stanford.edu/lcshgalaxy/"><img src="lcsh-cc-treecolors-a4.png" 
-        alt="image of a large network" width="192" height="250"
-        style="float:right;" /></a> 
- 
-		<h1>Network &amp; Matrix Computations</h1> 
-		<h3>David Gleich</h3> 
-		<h3> Purdue University </h3> 
-		<h3>Fall 2011</h3> 
-		<h3>Course number CS 59000-NMC</h3> 
-		<h3> Tuesdays and Thursday, 10:30am-11:45am</h3>
-		<h3> CIVL 2123 </h3>
+        {% include course-header.html %}
 	  </div>
 	  <div class="span-7 last"></div>
       <div class="span-17 prepend-1"><hr /></div>  
@@ -45,7 +35,7 @@
       <!-- start markdown div -->
       <h1>{{ page.title }}</h1>
       
-      {{ content }}
+{{ content }}
 
       <!-- close markdown div -->
       </div>

@@ -2,17 +2,24 @@
 <li> <a href=".">Course Home</a></li>
 <li> <a href="syllabus.html">Syllabus</a></li>
 <li> <a href="references.html">References</a></li>
-</ul>
-
-<h3>Lectures</h3>
-<ul>
-<li> <a href="slides/intro.pdf"> Intro </a> </li>
+<li> <a href="readings.html">Readings</a></li>
 </ul>
 
 <h3>Assignments</h3>
 <ul>
-<li> <a href="homeworks/survey.html"> Course Survey (html) </a> 
-     <a href="homeworks/survey.pdf">(pdf)</a>
-     <a href="homeworks/survey.tex">(tex)</a>
-</li>
+<li> <a href="homeworks/homework-1.html"> Homework 1 (html) </a> 
+<a href="homeworks/homework-1.tex">(tex)</a> </li>
+<li> <a href="homeworks/homework-1-soln.html"> Homework 1 solution (html) </a> 
+<a href="homeworks/homework-1-soln.pdf">(pdf)</a> </li>
+</ul>
+
+<h3>Lectures</h3>
+<ul>
+</ul>
+
+<h3>Quizzes</h3>
+<ul>
+{% for post in site.categories.quizzes %}
+<li> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </li>
+{% endfor %}
 </ul>

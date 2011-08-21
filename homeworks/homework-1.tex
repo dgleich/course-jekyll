@@ -1,0 +1,158 @@
+\documentclass{article}
+
+% Packages required to support encoding
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+% Packages required by code
+
+
+% Packages always used
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{colorlinks=true,urlcolor=blue}
+
+\input{preamble.tex}
+
+
+\begin{document} 
+\hypertarget{homework_1_1}{}\section*{{Homework 1}}\label{homework_1_1}
+
+\hypertarget{due_september_20th_2011_2}{}\subsection*{{Due September 20th, 2011}}\label{due_september_20th_2011_2}
+
+\hypertarget{problem_1_norms_3}{}\subsection*{{Problem 1: Norms}}\label{problem_1_norms_3}
+
+\emph{a)} Show that $f(\vx) = \normof{\mA \vx}_p$ is a vector-norm, where $\mA$ is a non-singular matrix.
+
+\emph{b)} Show that $f(\vx) = \normof{\mA \vx}_p$ is not a vector-norm if $\mA$ is singular.
+
+These norms will arise in our study of spectral graph theorem. In those cases, the matrix $\mA$ is usually the diagonal matrix of degrees for each node --{} commonly written $\mD$.
+
+\hypertarget{problem_2_4}{}\subsection*{{Problem 2}}\label{problem_2_4}
+
+There are a tremendous number of matrix norms that arise. An interesting class are called the \emph{orthgonally invariant norms}. Norms in this class satisfy:
+
+\begin{displaymath}
+\normof{\mA} = \normof{\mU \mA \mV}
+\end{displaymath}
+for \emph{square orthogonal matrices} $\mU$ and $\mV$. Recall that a square matrix is orthogonal when $\mU^T \mU = \mI$, i.e. $\mU^{-1} = \mU^T$.
+
+\emph{a)} Show that $\normof{ \mA }_F$ is orthogonally invariant. (Hint: use the relationship between $\normof{ \mA }_F$ and $\text{trace}( \mA^T \mA )$.)
+
+\emph{b)} Show that $\normof{ \mA }_2$ is orthogonally invariant. (Hint: first show that $\normof{ \mU \vx }_2 = \normof{\vx}_2$ using the relationshp between $\normof{ \vx }$ and $\vx^T \vx$.)
+
+\hypertarget{problem_3_5}{}\subsection*{{Problem 3}}\label{problem_3_5}
+
+In this problem, we'{}ll work through the answer to the challenge question on the introductory survey.
+
+Let $\mA$ be the adjacency matrix of a simple, undirected graph.
+
+\emph{a)} \textbf{An upper bound on the largest eigenvalue}\newline Show that $\lambda_{\max}(\mA)$ is at most, the maximum degree of the graph. Show that this bound is tight.
+
+\emph{b)} \textbf{A lower bound on the largest eigenvalue} Show that $\lambda_{\max}(\mA)$ is at least, the square-root of the maximum degree of the graph. Show that this bound is tight. (Hint: try and find a lower-bound on the Rayleigh-Ritz characterization $\lambda_{\max} = \max \vx^T \mA \vx / \vx^T \vx$.)
+
+\hypertarget{problem_4_6}{}\subsection*{{Problem 4}}\label{problem_4_6}
+
+In this question, we'{}ll show how to use these tools to solve a problem that arose when Amy Langville and I were studying ranking algorithms.
+
+\emph{a)} \textbf{the quiz from class} Let $\mA$ be an $n \times n$ matrix of all ones:
+
+\begin{displaymath}
+\mA = \bmat{ 1 & \cdots & 1 \\                \vdots & & \vdots \\
+                1 & \cdots & 1 }.
+\end{displaymath}
+What are the eigenvalues of $\mA$? What are the eigenvectors for all non-zero eigenvalues? Given a vector $\vx$, how can you tell if it'{}s in the \emph{nullspace} (i.e. it'{}s eigenvector with eigenvalue 0) without looking at the matrix?
+
+\emph{b)} \textbf{my problem with Amy} Amy and I were studying the $n+1 \times n+1$ matrix:
+
+\begin{displaymath}
+\mA = \bmat{ n & -1 & \cdots & -1 \\                -1 & \ddots & & \vdots \\
+                \vdots & & \ddots & -1 \\
+                -1 & \cdots & -1 & n }
+\end{displaymath}
+that arose when we were looking at ranking problems like we saw in \url{http://www.cs.purdue.edu/homes/dgleich/nmcomp/lectures/lecture-1-matlab.m} What we noticed was that Krylov methods to solve
+
+\begin{displaymath}
+\mA \vx = \vb
+\end{displaymath}
+worked incredibly fast.\newline Usually this happens when $\mA$ only has a few \emph{unique} eigenvalues. Show that this is indeed the case. What are the \emph{unique} eigenvalues of $\mA$?
+
+\emph{c)} \textbf{solving the system} Once we realized that there were only a few unique eigenvalues and vectors, we wanted to determine if there was a closed form solution of:
+
+\begin{displaymath}
+\mA \vx = \vb.
+\end{displaymath}
+There is such a form. Find it. (By closed form, I mean, given $\vb$, there should be a simple expression for $\vx$.)
+
+\hypertarget{problem_5_7}{}\subsection*{{Problem 5}}\label{problem_5_7}
+
+In this question, you'{}ll implement codes to convert between triplet form of a sparse matrix and compressed sparse row.
+
+\textbf{You may use any language you'{}d like.}
+
+\emph{a)} Describe and implement a procedure to turn a set of triplet data this data into a one-index based set of arrays: {\colorbox[rgb]{1.00,0.93,1.00}{\tt pointers\char44\char32columns\char44\char32and\char32values}} for the compressed sparse form of the matrix. Use as little additional memory as possible. (Hint: it'{}s doable using \emph{no} extra memory.)
+
+\begin{verbatim}function [pointers, columns, values] = sparse_compress(m, n, triplets)
+% SPARSE_COMPRESS Convert from triplet form
+%
+% Given a m-by-n sparse matrix stored as triplets:
+%   triplets(nzi,:) = (i,j,value)
+% Output the  the compressed sparse row arrays for the sparse matrix.
+
+% fill in the function\end{verbatim}
+\emph{b)} Describe and implement a procedure to take in the one-indexed compressed sparse row form of a matrix: {\colorbox[rgb]{1.00,0.93,1.00}{\tt pointers\char44\char32columns\char44\char32and\char32values}} and the dimensions {\colorbox[rgb]{1.00,0.93,1.00}{\tt m\char44\char32n}} and output the compressed sparse row arrays for the transpose of the matrix:
+
+\begin{verbatim}function [pointers_out, columns_out, values_out] = sparse_transpose(...
+	m, n, pointers, columns, values)
+% SPARSE_TRANSPOSE Compute the CSR form of a matrix transpose.
+%
+% 
+
+% fill in the function\end{verbatim}
+\hypertarget{problem_6_make_it_run_in_matlaboctavescipyetc_8}{}\subsection*{{Problem 6: Make it run in Matlab/Octave/Scipy/etc.}}\label{problem_6_make_it_run_in_matlaboctavescipyetc_8}
+
+In this problem, you'{}ll just have to run three problems on matlab. The first one will be to use the Jacobi method to solve a linear system. The second will be to use a Krylov method to solve a linear system. The third will be to use ARPACK to compute eigenvalues on Matlab.
+
+For this problem, you'{}ll need to use the `{}minnesota'{} road network.\newline It'{}s available on the website: \url{http://www.cs.purdue.edu/homes/dgleich/nmcomp/matlab/minnesota.mat} The file is in Matlab format. If you need another format, let me know.
+
+\emph{a)} Use the {\colorbox[rgb]{1.00,0.93,1.00}{\tt gplot}} function in Matlab to draw a picture of the Minnesota road network.
+
+\emph{b)} Check that the adjacency matrix A has only non-zero values of 1 and that it is symmetric. Fix any problems you encouter.
+
+\emph{c)} We'{}ll do some work with this graph and the linear system described in class:
+
+\begin{displaymath}
+\mI - \gamma \mL
+\end{displaymath}
+where $\mL$ is the combinatorial Laplacian matrix.
+
+\begin{verbatim} % In Matlab code
+ L = diag(sum(A)) - A;
+ S = speye(n) - gamma*L;\end{verbatim}
+For the right-hand side, label all the points above latitude line 47 with 1, and all points below latitude line 44 with -1.
+
+\begin{verbatim} % In Matlab code
+ b = zeros(n,1);
+ b(xy(:,2) > 47) = 1;
+ b(xy(:,2) < 44) = -1;\end{verbatim}
+Write a routine to solve the linear system using the Jacobi method on the compressed sparse row arrays. You should use your code from 5a to get these arrays by calling
+
+\begin{verbatim} [src,dst,val] = find(S); 
+ T = [src,dst,val];
+ [pointers,columns,values] = sparse_compress(size(A,1), size(A,2), T);\end{verbatim}
+Show the convergence, in the relative residual metric:
+
+\begin{displaymath}
+\normof{\vb - \mA \vx^{(k)}}/\normof{b}
+\end{displaymath}
+when {\colorbox[rgb]{1.00,0.93,1.00}{\tt gamma\char32\char61\char32\char49\char47\char55}} (Note that $\mA$ is the matrix in the linear system, not the adjacency matrix.)
+
+Show what happens when {\colorbox[rgb]{1.00,0.93,1.00}{\tt gamma\char61\char49\char47\char53}}
+
+\emph{d)} Try using Conjugate Gradient {\colorbox[rgb]{1.00,0.93,1.00}{\tt pcg}} and {\colorbox[rgb]{1.00,0.93,1.00}{\tt minres}} in Matlab on this same system with {\colorbox[rgb]{1.00,0.93,1.00}{\tt gamma\char61\char49\char47\char55}} and {\colorbox[rgb]{1.00,0.93,1.00}{\tt gamma\char61\char49\char47\char53}}. Show the convergence of the residuals.
+
+\emph{e)} Use the {\colorbox[rgb]{1.00,0.93,1.00}{\tt eigs}} routine to find the 18 smallest eigenvalues of the Laplacian matrix $\mL$.
+
+
+\end{document}

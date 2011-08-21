@@ -1,6 +1,8 @@
-exclude: bin
+exclude: bin private README.md
 markdown: maruku
-baseurl: /homes/dgleich/nmcomp/
+baseurl: /homes/dgleich/course
 maruku:
   use_mathjax: true
-
+permalink: none
+sidecar_exts: [pdf, tex]
+yaml_posts_only: true

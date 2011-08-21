@@ -1,15 +1,32 @@
 # Makefile for Jekyll course sites
 
-all: 
+include course-vars.mak
+
+all: texfiles
 	jekyll
-
-#publications.html : ~/Dropbox/bibliography/all-bibliography.bib publications/*-keys bin/make_publications 
-#	bin/make_publications
-
-clean:
-	rm -rf _site
 	
-deploy: all
-	rsync -rtvpC _site/ arthur.cs.purdue.edu:~/.www/nmcomp/ # "-C" causes rsync to ignore .cvsignore
+mdtexfiles := $(shell find . -name "*.md" -print0 | xargs -0 grep "latex: 'yes'" -l --null | xargs -0 grep "published: false" -L)
+pdffiles := $(mdtexfiles:.md=.pdf) # replace all the extensions
+texfiles := $(mdtexfiles:.md=.tex) # replace all the extensions
 
-.PHONY: all clean deploy
+# new rule for getting tex files from markdown
+%.tex : %.md
+	maruku -y --ext math -j --tex $< 
+
+# new rule for getting pdf files from tex files	
+%.pdf : %.tex
+	pdflatex -output-directory=$(@D) -interaction nonstopmode $<
+	pdflatex -output-directory=$(@D) -interaction nonstopmode $<
+
+texfiles: $(pdffiles) $(texfiles)
+
+cleantex:
+	rm -rf $(mdtexfiles:.md=.out) $(mdtexfiles:.md=.aux) $(mdtexfiles:.md=.log)
+
+clean: cleantex
+	rm -rf _site $(pdffiles) $(texfiles) 
+	
+deploy: all cleantex
+	rsync -rtvpC _site/ $(DEPLOY) # "-C" causes rsync to ignore .cvsignore
+
+.PHONY: all clean deploy texfiles cleantex

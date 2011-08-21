@@ -1,6 +1,7 @@
 ---
 title: CS 59000-NMC Syllabus
 layout: default
+latex: 'yes'
 ---
 
 Course information
@@ -72,7 +73,7 @@ The formal requirements and percentage of the total course grade are:
 
 * Introductory survey -- 5%  _due August 25th_
 * In-class quizzes -- 10%
-* Homeworks -- 35%
+* Homeworks -- 25%
 * Course project -- 40%  
   The anticipated breakdown into parts is:  
   * Proposal 5%, due around the middle of October)   
@@ -80,6 +81,7 @@ The formal requirements and percentage of the total course grade are:
   * Written report 30%, due on December 10.
 * Research paper presentation -- 20%
 
+* In-class scribing will constitute an extra 7.5% of your grade.
 
 ### Quizzes
 
@@ -328,11 +330,11 @@ the course.
                 condition numbers
 3.	1-Sep	--	Review of matrix computations: sparse matrices, 
                 their storage and operation
-4.	1-Sep	--	*Makeup 1* Review of matrix computations:
-                stationary iterative methods for sparse linear systems
-5.	6-Sep	--	Review of matrix computations: Krylov methods
+4.	6-Sep	--	Review of matrix computations:
+                stationary iterative methods for sparse linear systems                
+5.	8-Sep	--	Review of matrix computations: Krylov methods
                 for large linear systems and eigenvalues
-6.	8-Sep	--	Review of network computations: connected components,
+6.	8-Sep	--	**Makeup** Review of network computations: connected components,
                 shortest paths, minimum spanning trees
 7.	13-Sep	--	Matrix based network computations: degrees, triangles,
                 and Reachability.
@@ -344,23 +346,22 @@ the course.
 13.	4-Oct	--	PageRank
 14.	6-Oct	--	Localized centrality algorithms    
 	11-Oct	--	No class
-15.	13-Oct	--	Spectral graph theory
-16.	18-Oct	--	Spectral graph theory
-17.	20-Oct	--	Spectral graph theory
-18.	25-Oct	--	Research topics
-19.	27-Oct	--	Research topics
-20.	1-Nov	--	Research topics
-21.	3-Nov	--	Alex Pothen
-	8-Nov	--	Rescheduled
-22.	10-Nov	--	Research topics
-23.	15-Nov	--	Research topics
-24.	17-Nov	--	Student presentations
-25.	17-Nov	--	Student presentations    
-	22-Nov	--	No class
-26.	24-Nov	--	Student presentations
-27.	29-Nov	--	Student presentations
-28.	1-Dec	--	Student presentations
-29.	6-Dec	--	Student project presentations
+15.	13-Oct	--	PageRank
+	18-Oct	--	Rescheduled
+16.	20-Oct	--	PageRank 
+17.	25-Oct	--	Spectral graph theory
+18.	27-Oct	--	Spectral graph theory
+19.	1-Nov	--	Spectral graph theory
+20.	3-Nov	--	Spectral graph theory
+21.	8-Nov	--	Jen Neville
+22.	10-Nov	--	Alex Pothen
+23.	15-Nov	--	Student presentations (30 mins each)
+24.	17-Nov	--	Reschedule
+25.	22-Nov	--	Student presentations (30 mins each)
+26.	24-Nov	--	No class (Thanksgiving)
+27.	29-Nov	--	Student presentations (30 mins each)
+28.	1-Dec	--	Student presentations (30 mins each)
+29.	6-Dec	--	Student project presentations (12 mins each)
 30.	8-Dec	--	Student project presentations   
 
 ### Makeup classes
