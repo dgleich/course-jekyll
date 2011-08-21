@@ -1,0 +1,6 @@
+exclude: bin
+markdown: maruku
+baseurl: /homes/dgleich/nmcomp/
+maruku:
+  use_mathjax: true
+
